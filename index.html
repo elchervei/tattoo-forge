@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0b"><title>Tattoo Forge</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b0b;--panel:#151515;--line:#303030;--muted:#aaa;--paper:#eee8dc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#252525 0,transparent 36%),var(--bg);color:#f5f2ec;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 45px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.brand{display:flex;gap:10px;align-items:center}.logo{width:42px;height:42px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;font-size:25px}.brand strong{letter-spacing:2px}.brand small{display:block;color:#999;font-size:10px;letter-spacing:1.5px}.tag{border:1px solid #383838;border-radius:30px;padding:7px 10px;color:#bbb;font-size:11px}
+.hero{margin:10px 0 24px}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#bbb2a4}.hero h1{font-size:clamp(36px,7vw,62px);line-height:.98;letter-spacing:-2px;margin:10px 0}.hero p{color:var(--muted);max-width:650px}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{min-width:0;background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);border-radius:18px;padding:18px}.panel h2{font-size:18px;margin:0 0 5px}.sub{color:#999;font-size:12px;margin:0 0 18px}
+label{display:block;margin:15px 0 7px;font-size:13px;color:#ddd}textarea,select{width:100%;background:#0b0b0b;border:1px solid #3a3a3a;border-radius:11px;padding:12px;color:#f5f2ec;font:inherit}textarea{min-height:100px;resize:vertical}textarea:focus,select:focus{outline:1px solid #aaa}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{border:1px solid #3a3a3a;border-radius:30px;padding:8px 11px;background:#101010;color:#ddd;font-size:12px}.chip.active{background:var(--paper);color:#111;border-color:var(--paper)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}.primary{width:100%;padding:14px;border:0;border-radius:11px;background:var(--paper);color:#111;font-weight:800;margin-top:20px}.primary:disabled{opacity:.55}.hint{font-size:11px;color:#888;margin-top:10px}
+.canvas{min-height:380px;background:var(--paper);color:#29251f;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:18px;overflow:hidden}.canvas img{display:block;max-width:100%;max-height:520px;object-fit:contain}.placeholder{text-align:center;max-width:270px;color:#5c554b}.placeholder .star{font-size:36px}.placeholder strong{display:block;font-size:20px;margin:8px 0}.placeholder small{font-size:12px}.resultbar{display:flex;justify-content:space-between;gap:8px;margin:12px 0;font-size:12px}.resultbar span{color:#999}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.secondary{padding:11px;border:1px solid #3a3a3a;border-radius:10px;background:#171717;color:#eee}.secondary:disabled{opacity:.4}.status{font-size:12px;min-height:18px;color:#c8c0b2;margin-top:8px}.gallery{margin-top:20px}.gallerytop{display:flex;justify-content:space-between;align-items:center}.gallerytop h2{font-size:18px}.gallerytop span{font-size:12px;color:#999}.gallerygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tile{border:1px solid #333;border-radius:11px;overflow:hidden;background:#161616}.tile img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--paper)}.tile p{font-size:11px;padding:0 8px;overflow-wrap:anywhere}.tile button{margin:0 8px 8px;width:calc(100% - 16px)}.empty{color:#888;border:1px dashed #333;border-radius:12px;padding:18px;font-size:13px;grid-column:1/-1}.footer{text-align:center;color:#777;font-size:11px;margin-top:24px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.canvas{min-height:300px}.gallerygrid{grid-template-columns:repeat(2,1fr)}.tag{display:none}.panel{padding:15px}.hero h1{font-size:43px}}
+</style></head>
+<body><div class="wrap">
+<header class="top"><div class="brand"><div class="logo">✳</div><div><strong>TATTOO FORGE</strong><small>YOUR IDEA. YOUR INK.</small></div></div><span class="tag">AI TATTOO STUDIO · MVP</span></header>
+<section class="hero"><div class="eyebrow">Студия тату-идей</div><h1>От мысли —<br>к эскизу.</h1><p>Опиши татуировку, выбери стиль и получи изображение, которое можно сохранить и показать мастеру.</p></section>
+<main class="layout">
+<section class="panel"><h2>Создать эскиз</h2><p class="sub">Чем точнее описание, тем ближе результат к задумке.</p>
+<label for="idea">Что хочешь набить?</label><textarea id="idea" maxlength="900" placeholder="Например: чёрная змея обвивает старый кинжал, тонкие штрихи, симметричная композиция…"></textarea>
+<label>Стиль</label><div class="chips" id="styles"><button class="chip active">Blackwork</button><button class="chip">Графика</button><button class="chip">Трайбл</button><button class="chip">Хоррор</button><button class="chip">Орнамент</button><button class="chip">Реализм</button><button class="chip">Японский</button><button class="chip">Fine line</button></div>
+<div class="twocol"><div><label for="body">Часть тела</label><select id="body"><option>Предплечье</option><option>Плечо</option><option>Грудь</option><option>Спина</option><option>Голень</option><option>Кисть</option><option>Шея</option><option>Другое</option></select></div><div><label for="layout">Композиция</label><select id="layout"><option>Вертикальная</option><option>Горизонтальная</option><option>Симметричная</option><option>Круглая</option></select></div></div>
+<label>Детализация</label><div class="chips" id="detail"><button class="chip">Минимализм</button><button class="chip active">Средняя</button><button class="chip">Максимальная</button></div>
+<button class="primary" id="generate">✦ Сгенерировать эскиз</button><div class="hint">Генерация использует серверный API. Для работы нужно добавить ключ API в настройки проекта на Vercel — не вставляй секретный ключ в этот файл.</div><div class="status" id="status" role="status"></div>
+</section>
+<section class="panel"><h2>Предпросмотр</h2><p class="sub">Созданные изображения появятся здесь.</p><div class="canvas" id="canvas"><div class="placeholder"><div class="star">✳</div><strong>Место для твоего эскиза</strong><small>Опиши идею и нажми «Сгенерировать эскиз»</small></div></div><div class="resultbar"><b id="resultTitle">Пока нет эскиза</b><span id="resultMeta">PNG · AI</span></div><div class="actions"><button class="secondary" id="save" disabled>♡ В коллекцию</button><button class="secondary" id="download" disabled>↓ Скачать PNG</button></div></section>
+</main>
+<section class="gallery"><div class="gallerytop"><h2>Моя коллекция</h2><span id="count">0 эскизов</span></div><div class="gallerygrid" id="gallery"><div class="empty">Сохраняй удачные эскизы — они появятся здесь на этом устройстве.</div></div></section>
+<div class="footer">TATTOO FORGE · MVP · Перед нанесением обсуди размер и адаптацию дизайна с профессиональным мастером.</div>
+</div>
+<script>
+const $=s=>document.querySelector(s);let style='Blackwork',detail='Средняя',current=null,items=[];
+function chips(id,cb){document.querySelectorAll('#'+id+' .chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#'+id+' .chip').forEach(x=>x.classList.toggle('active',x===b));cb(b.textContent)}))}
+chips('styles',v=>style=v);chips('detail',v=>detail=v);
+function setStatus(t){$('#status').textContent=t}
+$('#generate').addEventListener('click',async()=>{
+ const idea=$('#idea').value.trim();if(!idea){$('#idea').focus();setStatus('Сначала напиши описание татуировки.');return}
+ const btn=$('#generate');btn.disabled=true;btn.textContent='⏳ Генерируем…';setStatus('Отправляем запрос. Обычно это занимает некоторое время.');
+ try{
+  const res=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea,style,detail,body:$('#body').value,composition:$('#layout').value})});
+  const data=await res.json();if(!res.ok)throw new Error(data.error||'Не удалось создать изображение');
+  current={image:'data:image/png;base64,'+data.image,idea,style,body:$('#body').value,createdAt:Date.now()};
+  $('#canvas').innerHTML='';const img=new Image();img.src=current.image;img.alt='Сгенерированный тату-эскиз';$('#canvas').appendChild(img);
+  $('#resultTitle').textContent=idea.length>38?idea.slice(0,38)+'…':idea;$('#resultMeta').textContent=style+' · PNG';$('#save').disabled=false;$('#download').disabled=false;setStatus('Готово! Проверь детали и при необходимости создай ещё вариант.');
+ }catch(e){setStatus(e.message+' Проверь API-ключ и настройки деплоя.');}
+ finally{btn.disabled=false;btn.textContent='✦ Сгенерировать эскиз'}
+});
+$('#download').addEventListener('click',()=>{if(!current)return;const a=document.createElement('a');a.href=current.image;a.download='tattoo-forge-'+Date.now()+'.png';a.click()});
+function render(){const g=$('#gallery');$('#count').textContent=items.length+' эскизов';if(!items.length){g.innerHTML='<div class="empty">Сохраняй удачные эскизы — они появятся здесь на этом устройстве.</div>';return}g.innerHTML='';items.forEach((x,i)=>{const card=document.createElement('div');card.className='tile';const img=document.createElement('img');img.src=x.image;img.alt=x.idea;const p=document.createElement('p');p.textContent=x.style+' · '+x.idea;const b=document.createElement('button');b.className='secondary';b.textContent='Удалить';b.onclick=()=>{items.splice(i,1);render()};card.append(img,p,b);g.append(card)})}
+$('#save').addEventListener('click',()=>{if(!current)return;items.unshift({...current});render();$('#save').textContent='✓ Сохранено';setTimeout(()=>$('#save').textContent='♡ В коллекцию',1000)});
+</script></body></html>
